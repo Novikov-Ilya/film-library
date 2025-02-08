@@ -1,10 +1,11 @@
 .slider {
   height: 50vh;
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 
   .slides {
     transition: .5s ease-out;
+    width: 100%;
   }
 
   li {
@@ -39,7 +40,7 @@
     height: 100%;
     width: 5vw;
     font-size: 2em;
-    transition: .5s ease-out;
+    transition: .3s ease-out;
     user-select: none;
     z-index: 1;
     opacity: 0;
@@ -52,10 +53,20 @@
   .next {
     flex-direction: row-reverse;
     padding-right: 1vw;
+    transform: translateX(-10px);
+
+    &:hover {
+      transform: translateX(0px);
+    }
   }
 
   .prev {
     padding-left: 1vw;
+    transform: translateX(10px);
+
+    &:hover {
+      transform: translateX(0px);
+    }
   }
 
   .slider-button:hover {

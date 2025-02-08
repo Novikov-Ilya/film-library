@@ -2,6 +2,8 @@
   display: flex;
   height: 100%;
   padding-left: .5vw;
+  user-select: none;
+  cursor: pointer;
 
   img {
     height: 100%;

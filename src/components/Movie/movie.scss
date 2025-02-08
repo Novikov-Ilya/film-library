@@ -1,9 +1,29 @@
+@use '../../const/colors.scss' as styles;
+
 .movie-item {
   display: flex;
   flex-direction: column;
-  height: 10vh;
+  height: 300px;
+  width: 10vw;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  box-sizing: border-box;
+  border: 2px solid styles.$header-color;
+  border-radius: 10px;
+  transition: .3s ease-out;
+
+  &:hover {
+    border-color: rgb(176, 212, 212);
+  }
+
+  .movie-info-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
   img {
-    height: 100%;
+    height: 75%;
+    border-radius: 10px;
   }
 }
