@@ -1,0 +1,9 @@
+.movie-item {
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+
+  img {
+    height: 100%;
+  }
+}

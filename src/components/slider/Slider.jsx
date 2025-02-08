@@ -18,10 +18,12 @@ export default function Slider() {
       ? setSlideMove(-windowWidth * (sliderImages.length - 1))
       : setSlideMove(slideMove + windowWidth)
     }
-
-    slideMove === -windowWidth * (sliderImages.length - 1)
+    if (e.target.id === 'next') {
+      slideMove === -windowWidth * (sliderImages.length - 1)
     ? setSlideMove(0)
     : setSlideMove(slideMove - windowWidth)
+    }
+    
   }
 
   return (
