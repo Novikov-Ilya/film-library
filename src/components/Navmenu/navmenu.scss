@@ -1,0 +1,32 @@
+.nav-menu {
+  display: flex;
+  align-items: center;
+  max-width: 30vw;
+  cursor: pointer;
+}
+
+.nav-menu ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.nav-menu li {
+  display: flex;
+  align-items: center;
+  padding: 0 .5vw;
+  height: 100%;
+  transition: .3s ease-in;
+  font-size: 1.4em;
+
+  &:hover {
+    transform: translateX(5px);
+  }
+}
+
+.nav-menu li:hover {
+  background-color: rgb(215, 215, 255);
+}

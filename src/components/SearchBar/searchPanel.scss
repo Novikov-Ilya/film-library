@@ -1,0 +1,27 @@
+.search-panel {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: right;
+  min-width: 20vw;
+  padding-right: 1vw;
+
+  #quick-search {
+    margin-right: .5vw;
+    border-radius: 6px;
+  }
+
+  .search-button {
+    background: #a6a2ed;
+    border-radius: 5px;
+    transition: .2s ease-out;
+    border: none;
+    padding: 1%;
+  }
+
+  .search-button:hover {
+    background: #8181e7;
+    cursor: pointer;
+  }
+}
+

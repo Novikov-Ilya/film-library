@@ -1,0 +1,15 @@
+.branding {
+  display: flex;
+  height: 100%;
+  padding-left: .5vw;
+
+  img {
+    height: 100%;
+  }
+
+  .logo-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+  }
+}

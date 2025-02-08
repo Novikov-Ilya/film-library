@@ -1,0 +1,11 @@
+@use '../../const/colors.scss' as styles;
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  min-height: 10vh;
+  max-width: 100vw;
+  background-color: styles.$header-color;
+  position: sticky;
+}
