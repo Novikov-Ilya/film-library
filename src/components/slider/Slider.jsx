@@ -9,7 +9,6 @@ export default function Slider() {
 
   const slideMoveStyle = {
     transform: `translateX(${slideMove}px)`,
-    'z-index': 0
   }
 
   function handleClickNext(e) {
@@ -23,7 +22,6 @@ export default function Slider() {
     slideMove === -windowWidth * (sliderImages.length - 1)
     ? setSlideMove(0)
     : setSlideMove(slideMove - windowWidth)
-    console.log(slideMove);
   }
 
   return (
