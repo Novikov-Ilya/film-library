@@ -1,7 +1,7 @@
 import apiParams from '../../const/fetchparams';
 import { useState, useEffect } from 'react';
 import Coctail from '../Movie/Coctail';
-import './MainPage.scss'
+import './mainPage.scss'
 import CoctailCard from '../MovieCard/CoctailCard';
 import Tabs from '../Tabs/Tabs';
 
