@@ -1,0 +1,15 @@
+.tabs__categories-buttons {
+  display: flex;
+  justify-content:center;
+  margin-top: 1rem;
+
+  button:last-child {
+    margin-right: 0;
+  }
+
+  button {
+    margin-right: 0.4rem;
+  }
+
+  
+}

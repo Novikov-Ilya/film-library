@@ -1,0 +1,20 @@
+@use '../../const/colors.scss' as styles;
+
+button {
+  font-family: inherit;
+  font-weight: 700;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  border-width: 0;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+
+  &:hover{
+    background-color: #ffe6b0;
+  }
+}
+
+button.active {
+background-color: styles.$active-color;
+}

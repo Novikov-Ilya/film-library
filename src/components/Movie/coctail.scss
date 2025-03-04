@@ -17,6 +17,10 @@
     background-color: styles.$header-color;
   }
 
+  &:hover img {
+    filter: saturate(1);
+  }
+
   .coctail__info-tile {
     display: flex;
     flex-direction: column;
@@ -28,5 +32,11 @@
     height: auto;
     width: auto;
     border-radius: 10px;
+    filter: saturate(0.8);
+    transition: filter ease-in-out 0.2s;
+  }
+
+  p {
+    font-size: 0.8em;
   }
 }
