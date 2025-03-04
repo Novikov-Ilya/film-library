@@ -1,58 +1,73 @@
-import axios from 'axios';
 import apiParams from '../../const/fetchparams';
 import { useState, useEffect } from 'react';
-import Movie from '../Movie/Movie';
+import Coctail from '../Movie/Coctail';
 import './MainPage.scss'
+import CoctailCard from '../MovieCard/CoctailCard';
+import Tabs from '../Tabs/Tabs';
 
 export default function MainPage() {
-  const [movies, setMovies] = useState([]);
+  const [coctails, setCoctails] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showCoctail, setShowCoctail] = useState(false);
+  const [currentCoctail, setCurrentCoctail] = useState(null);
+  const [currentCategory, setCurrentCategory] = useState('Cocktail')
+
+  function handleClick(id) {
+    setShowCoctail(true);
+    setCurrentCoctail(id);
+  }
+
+  function closeModal() {
+    setShowCoctail(false)
+  }
+
+  function selectCategory(e) {
+    setCurrentCategory(e)
+  }
 
   useEffect(() => {
-    const getMovies = async () => {
+    const getCocktails = async () => {
       try {
-        const response = await fetch(apiParams.upcoming, {
-          headers: {
-            ...apiParams.headers
+        const response = await fetch(`${apiParams.filter}${currentCategory}`, { ...apiParams.headers });
+        if (!response.ok) {
+          if (response.status == 429) {
+            throw new Error("Limit is reached")
           }
-        });
-        if (response.status >= '500') {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        
-        setMovies(result.results);
-      } catch (error) {
-        setError(error);
-        console.log(error);
+        setCoctails(result.drinks);
+      } catch (e) {
+        setError(e);
+        console.log(e);
       } finally {
         setLoading(false);
       }
     };
 
-    getMovies();
-  }, []);
-
-
-
+    getCocktails();
+  }, [currentCategory]);
 
   return (
-    
-    <div className='main-page-content'>
-     {
-      (error)
-      ? <p>{error.message}</p>
-      : movies.map((item) => <Movie
-      key={item.id}
-      title={item.titleText?.text || ''}
-      img={item.primaryImage?.url || ''}
-      year={item.releaseDate?.year || ''}
-       />)
-       
-      } 
-     
-    </div>
+    <>
+      <Tabs select={selectCategory}/>
+      <div className='main-page-content'>
+        {
+          error
+            ? <p>{error.message}</p> : null}
+        {loading
+          ? <p>Loading...</p>
+          : coctails.map((item) => <Coctail
+            onClick={() => handleClick(item.idDrink)}
+            key={item.idDrink}
+            title={item.strDrink || ''}
+            img={item.strDrinkThumb || './src/assets/imageplaceholder.png'}
+          />)
+        }
+        {showCoctail && <CoctailCard show={showCoctail} id={currentCoctail} close={closeModal} />}
+      </div>
+    </>
   )
 }
 

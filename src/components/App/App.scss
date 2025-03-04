@@ -5,8 +5,16 @@
   height: auto;
 }
 
+html {
+  width: 100%;
+}
+
 body {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+#root {
+  width: 100%;
 }

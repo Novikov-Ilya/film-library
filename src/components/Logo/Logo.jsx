@@ -7,7 +7,7 @@ export default function Logo() {
       <div className="logo">
         <img src={logo} alt="logo" />
       </div>
-      <div className='logo-title'>Film Library</div>
+      <div className='logo-title'>Coctail Collection</div>
     </div>
   )
 }

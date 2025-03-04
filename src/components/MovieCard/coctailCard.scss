@@ -1,0 +1,19 @@
+dialog {
+  position: absolute;
+  margin: 10rem auto;
+  width: 50vw;
+
+  .coctail__container {
+    display: flex;
+    flex-direction: column;
+
+    .coctail__top-info {
+      display: flex;
+      flex-direction: row;
+    }
+
+    img {
+      height: 300px;
+    }
+  }
+}

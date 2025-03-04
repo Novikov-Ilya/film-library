@@ -1,8 +1,9 @@
 export default {
-  upcoming: 'https://moviesdatabase.p.rapidapi.com/titles/x/upcoming',
+  filter: 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=',
+  aCategories: 'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list',
+  coctailDetailsBuId: 'https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=',
+  random: 'https://www.thecocktaildb.com/api/json/v1/1/random.php',
   headers: {
-    'x-rapidapi-key': '98fc31cd9dmshe762a36ed45a2a6p130c8cjsne07a86010140',
-    'x-rapidapi-host': 'moviesdatabase.p.rapidapi.com',
     'Access-Control-Allow-Origin': '*'
-  }
+  },
 }
