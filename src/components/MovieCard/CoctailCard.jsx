@@ -25,6 +25,7 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
     <div className="modal__background">
       <section className="coctail__container">
         <h2>{currentCoctail.strDrink}</h2>
+        <hr />
         <section className="coctail__top-info">
           <div className="coctail__image">
             <img src={currentCoctail.strDrinkThumb}
@@ -37,6 +38,7 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
             <p><b>Glass:</b> {currentCoctail.strGlass}</p>
           </div>
         </section>
+        <hr />
         <section className="coctail__description">
           <h4>Instructions:</h4>
           <p>{currentCoctail.strInstructions}</p>

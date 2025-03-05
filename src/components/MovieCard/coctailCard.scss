@@ -10,6 +10,18 @@
   left: 0;
   background-color: rgba($color: #a8a6a3, $alpha: 0.7);
   z-index: 2;
+  animation-name: appear;
+  animation-duration: 0.5s;
+
+  @keyframes appear {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
 
   .coctail__container {
     display: flex;
@@ -18,7 +30,8 @@
     opacity: 1;
     background-color: styles.$header-color;
     height: auto;
-    width: 600px;
+    max-height: 100vh;
+    width: min(600px, 100vw);
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px black;
@@ -28,7 +41,7 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: start;
-      
+      margin: 10px 0;
     }
 
     .coctail__attr {
@@ -42,11 +55,20 @@
 
     p {
       font-weight: 400;
+      font-size: 0.9em;
+
+      b {
+        font-size: inherit;
+      }
     }
 
     .modal__controls {
       display: flex;
       justify-content: space-between;
+    }
+
+    .coctail__description {
+      margin-top: 5px;
     }
   }
 }
