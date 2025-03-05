@@ -17,14 +17,18 @@
     padding: 5px;
     opacity: 1;
     background-color: styles.$header-color;
-    height: 60%;
-    width: 800px;
+    height: auto;
+    width: 600px;
     margin: auto;
     border-radius: 10px;
+    box-shadow: 0 5px 20px black;
 
     .coctail__top-info {
       display: flex;
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: start;
+      
     }
 
     .coctail__attr {
@@ -33,6 +37,7 @@
 
     img {
       height: 300px;
+      border-radius: 10px;
     }
 
     p {

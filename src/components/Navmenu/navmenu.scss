@@ -1,8 +1,10 @@
+@use '../../const/colors.scss' as styles;
+
 .nav-menu {
   display: flex;
   align-items: center;
-  max-width: 30vw;
   cursor: pointer;
+  padding: 0 10px;
 }
 
 .nav-menu ul {
@@ -23,9 +25,16 @@
   height: 100%;
   transition: .3s ease-in;
   font-size: 1.4em;
+  border-left: solid 2px;
+
+  &:last-of-type {
+    border-right: solid 2px;
+    transition: .3s ease-in;
+  }
 
   &:hover {
     transform: translateX(5px);
+    border-right: none;
   }
 }
 

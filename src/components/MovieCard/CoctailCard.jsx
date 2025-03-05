@@ -31,13 +31,14 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
               alt={currentCoctail.strDrink} />
           </div>
           <div className="coctail__attr">
-            <p>Title: {currentCoctail.strDrink}</p>
-            <p>Category: {currentCoctail.strCategory}</p>
-            <p>IBA: {currentCoctail.strIBA || 'Unspecified'}</p>
-            <p>Glass: {currentCoctail.strGlass}</p>
+            <p><b>Title:</b> {currentCoctail.strDrink}</p>
+            <p><b>Category:</b> {currentCoctail.strCategory}</p>
+            <p><b>IBA:</b> {currentCoctail.strIBA || 'Unspecified'}</p>
+            <p><b>Glass:</b> {currentCoctail.strGlass}</p>
           </div>
         </section>
         <section className="coctail__description">
+          <h4>Instructions:</h4>
           <p>{currentCoctail.strInstructions}</p>
         </section>
         <div className="modal__controls">

@@ -2,6 +2,7 @@
   display: flex;
   justify-content:center;
   margin-top: 1rem;
+  flex-wrap: wrap;
 
   button:last-child {
     margin-right: 0;
@@ -9,6 +10,7 @@
 
   button {
     margin-right: 0.4rem;
+    margin-bottom: 5px;
   }
 
   
