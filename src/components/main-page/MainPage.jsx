@@ -50,6 +50,14 @@ export default function MainPage() {
   }
 
   useEffect(() => {
+    if(showCoctail) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [showCoctail])
+
+  useEffect(() => {
     const getCocktails = async () => {
       try {
         const response = await fetch(`${apiParams.cocktailByCategory}${currentCategory}`, { ...apiParams.headers });
