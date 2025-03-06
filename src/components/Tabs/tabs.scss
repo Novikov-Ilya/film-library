@@ -6,10 +6,9 @@
   padding: 1rem;
   flex-wrap: wrap;
   position: sticky;
-  top: 11.7dvh;
+  top: 10dvh;
   z-index: 2;
   background-color: styles.$header-color;
-  box-sizing: border-box;
 
   button:last-child {
     margin-right: 0;

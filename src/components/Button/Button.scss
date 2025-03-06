@@ -3,18 +3,20 @@
 button {
   font-family: inherit;
   font-weight: 700;
-  padding: 0.2rem 0.4rem;
-  font-size: 0.8rem;
+  padding: 0.3em 0.5em;
+  font-size: 0.8em;
   border-radius: 5px;
   border-width: 0;
   cursor: pointer;
   transition: all ease-in-out 0.2s;
+  color: styles.$font-black-color;
 
-  &:hover{
+  &:hover {
     background-color: #ffe6b0;
   }
 }
 
 button.active {
-background-color: styles.$active-color;
+  background-color: styles.$active-color;
+  color: styles.$font-main-color;
 }

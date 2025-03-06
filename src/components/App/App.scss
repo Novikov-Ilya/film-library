@@ -1,8 +1,12 @@
+@use '../../const/colors.scss' as style;
+
 * {
   font-size: 20px;
   margin: 0;
   padding: 0;
   height: auto;
+  box-sizing: border-box;
+  color: style.$font-main-color;
 }
 
 html {
@@ -21,4 +25,9 @@ body {
 
 h2 {
   font-size: 1.8em;
+  color: style.$font-black-color;
+}
+
+h4 {
+  color: style.$font-black-color;
 }

@@ -35,9 +35,7 @@
   &:hover {
     transform: translateX(5px);
     border-right: none;
+    background-color: styles.$active-color;
   }
 }
 
-.nav-menu li:hover {
-  background-color: rgb(215, 215, 255);
-}

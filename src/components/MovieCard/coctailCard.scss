@@ -28,13 +28,14 @@
     flex-direction: column;
     padding: 5px;
     opacity: 1;
-    background-color: styles.$header-color;
+    background-color: styles.$tile-color;
     height: auto;
     max-height: 100vh;
     width: min(600px, 100vw);
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px black;
+    
 
     .coctail__top-info {
       display: flex;
@@ -42,6 +43,7 @@
       flex-wrap: wrap;
       justify-content: start;
       margin: 10px 0;
+      
     }
 
     .coctail__attr {
@@ -56,9 +58,11 @@
     p {
       font-weight: 400;
       font-size: 0.9em;
+      color: styles.$font-black-color;
 
       b {
         font-size: inherit;
+        color: styles.$font-black-color;
       }
     }
 

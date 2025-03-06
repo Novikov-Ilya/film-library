@@ -1,3 +1,5 @@
+@use '../../const/colors.scss' as styles;
+
 .search-panel {
   display: flex;
   flex-wrap: nowrap;
@@ -5,10 +7,12 @@
   justify-content: right;
   min-width: 20vw;
   padding-right: 1vw;
+  color: styles.$font-black-color;
 
   #quick-search {
     margin-right: .5vw;
     border-radius: 6px;
+    color: inherit;
   }
 
   .search-button {
@@ -25,3 +29,47 @@
   }
 }
 
+.search__quick-search-wrap {
+  z-index: 3;
+  position: fixed;
+  width: auto;
+  background-color: white;
+  border-radius: 5px;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  color: styles.$font-black-color;
+
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+
+  ul {
+    list-style: none;
+    color: inherit;
+
+    p {
+      color: styles.$font-black-color;
+      padding-left: 5px;
+      font-weight: 500;
+    }
+  }
+
+
+  .search__quick-search-item {
+    display: flex;
+    margin: 5px;
+  }
+
+  .search__quick-search-image img {
+    height: 50px;
+    width: 50px;
+    border-radius: 5px;
+  }
+}

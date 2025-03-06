@@ -12,32 +12,28 @@ export default function MainPage() {
   const [showCoctail, setShowCoctail] = useState(false);
   const [currentCoctail, setCurrentCoctail] = useState(null);
   const [currentCategory, setCurrentCategory] = useState('Cocktail');
-  const [currentCocktailIndex, setCurrentCocktailIndex] = useState(null)
 
-  function handleClick(id, index) {
+  function handleClick(id) {
     setShowCoctail(true);
     setCurrentCoctail(id);
-    setCurrentCocktailIndex(index);
   }
 
   function switchCocktail(e) {
     let index;
     switch (e.target.innerText) {
       case 'Next':
-        index = currentCocktailIndex + 1;
+        index = coctails.findIndex(i => i.idDrink == currentCoctail) + 1;
         if (index > coctails.length - 1) {
           index = 0
         }
-        setCurrentCocktailIndex(index);
         setCurrentCoctail(coctails[index].idDrink);
         break;
 
       case 'Previous':
-        index = currentCocktailIndex - 1;
+        index = coctails.findIndex(i => i.idDrink == currentCoctail) - 1;
         if (index < 0) {
           index = coctails.length - 1
         }
-        setCurrentCocktailIndex(index);
         setCurrentCoctail(coctails[index].idDrink);
         break;
       default:
@@ -56,7 +52,7 @@ export default function MainPage() {
   useEffect(() => {
     const getCocktails = async () => {
       try {
-        const response = await fetch(`${apiParams.filter}${currentCategory}`, { ...apiParams.headers });
+        const response = await fetch(`${apiParams.cocktailByCategory}${currentCategory}`, { ...apiParams.headers });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
