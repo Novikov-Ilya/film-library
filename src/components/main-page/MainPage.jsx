@@ -41,8 +41,13 @@ export default function MainPage() {
     }
   }
 
-  function closeModal() {
-    setShowCoctail(false)
+  function closeModal(e) {
+    e.stopPropagation();
+    if (e.target.classList.contains('modal__background')
+      || e.target.innerHTML == 'Close') {
+      setShowCoctail(false)
+    }
+
   }
 
   function selectCategory(e) {
@@ -50,7 +55,7 @@ export default function MainPage() {
   }
 
   useEffect(() => {
-    if(showCoctail) {
+    if (showCoctail) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'auto';

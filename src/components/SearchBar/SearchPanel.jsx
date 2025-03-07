@@ -51,6 +51,7 @@ export default function SearchPanel() {
                   </div>
                   <div className='search__quick-search-title'>
                     <p>{cocktail.strDrink}</p>
+                    <p className='search__quick-search-type'>{cocktail.strCategory}</p>
                   </div>
                 </div>
               </li>)

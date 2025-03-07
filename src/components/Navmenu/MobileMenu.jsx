@@ -1,7 +1,7 @@
 import { navMenu } from "../../const/navMenu"
 import './navmenu.scss'
 
-export const MobileMenu = () => {
+const MobileMenu = () => {
   return (
     <div className="nav-menu-mobile">
       <div className="menu-icon">
@@ -12,3 +12,5 @@ export const MobileMenu = () => {
     </div>
   )
 }
+
+export default MobileMenu

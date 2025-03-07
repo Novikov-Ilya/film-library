@@ -22,7 +22,7 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
   }, [id]);
 
   return (show &&
-    <div className="modal__background">
+    <div className="modal__background" onClick={close}>
       <section className="coctail__container">
         <h2>{currentCoctail.strDrink}</h2>
         <hr />

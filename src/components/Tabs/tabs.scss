@@ -3,20 +3,17 @@
 .tabs__categories-buttons {
   display: flex;
   justify-content:center;
-  padding: min(1vw, 5px);
+  padding: min(1.5vw, 8px);
   flex-wrap: wrap;
   position: sticky;
-  top: 11vh;
+  top: 11.5vh;
   z-index: 2;
   background-color: styles.$header-color;
-
-  button:last-child {
-    margin-right: 0;
-  }
 
   button {
     margin-right: 0.4rem;
     margin-bottom: 5px;
+    flex-grow: 1;
   }
 
   

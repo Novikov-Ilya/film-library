@@ -29,6 +29,8 @@
     padding: 5px;
     opacity: 1;
     background-color: styles.$tile-color;
+    font-size: 0.8em;
+    
     height: auto;
     height: 70vh;
     width: min(600px, 100vw);
@@ -43,7 +45,7 @@
       flex-wrap: wrap;
       justify-content: start;
       margin: 10px 0;
-      
+      line-height: 16px;
     }
 
     .coctail__attr {

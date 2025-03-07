@@ -7,7 +7,6 @@ const Coctail = ({ title, img, onClick }) => {
       <div className='coctail__info-tile'>
         <p>{title}</p>
       </div>
-
     </div>
   )
 }
