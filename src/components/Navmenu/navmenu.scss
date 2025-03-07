@@ -39,3 +39,43 @@
   }
 }
 
+.nav-menu-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: -166px;
+  bottom: 0;
+  width: 200px;
+  padding-top: 20px;
+  background-color: transparent;
+  transition: all ease-in-out 0.5s;
+
+  ul {
+    list-style: none;
+  }
+
+  li {
+    padding-left: 5px;
+  }
+
+  .menu-icon {
+    background-image: url('../../images/menu.png');
+    height: 32px;
+    width: 32px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .nav-menu-mobile {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+  }
+
+  .nav-menu-mobile:hover {
+    right: 0;
+    background-color: styles.$green-light;
+  }
+}

@@ -4,14 +4,22 @@
   padding-left: .5vw;
   user-select: none;
   cursor: pointer;
+  align-items: center;
 
   img {
-    height: 100%;
+    height: min(30vw, 52px);
   }
 
   .logo-title {
     display: flex;
     align-items: center;
-    font-size: 1.5em;
+    font-size: min(4vw, 40px);
   }
+}
+
+@media (max-width: 750px) {
+  .branding {
+    padding: 0;
+  }
+
 }
