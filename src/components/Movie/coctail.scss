@@ -14,10 +14,6 @@
   margin-right: 10px;
   background-color: styles.$green-light;
 
-  &:last-of-type {
-    margin-right: 0;
-  }
-
   &:hover {
     border-color: styles.$active-color;
     background-color: styles.$header-color;

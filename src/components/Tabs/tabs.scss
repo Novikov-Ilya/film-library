@@ -3,7 +3,7 @@
 .tabs__categories-buttons {
   display: flex;
   justify-content:center;
-  padding: 1rem;
+  padding: min(1vw, 5px);
   flex-wrap: wrap;
   position: sticky;
   top: 11vh;

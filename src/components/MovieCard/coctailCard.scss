@@ -48,12 +48,16 @@
 
     .coctail__attr {
       padding-left: 8px;
-      width: 250px;
+      width: min(250px, 45%);
     }
 
-    img {
-      height: 300px;
-      border-radius: 10px;
+    .coctail__image {
+      width: min(300px, 45%);
+
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
     }
 
     p {
