@@ -49,7 +49,6 @@ export default function MainPage() {
 
   function closeModal(e) {
     e.stopPropagation();
-    console.log(e.target.dataset.action)
     if (e.target.classList.contains('modal__background')
       || e.target.dataset.action == 'close-modal') {
       setShowCoctail(false)
@@ -74,7 +73,6 @@ export default function MainPage() {
 
     function addAlcoholFreeLabel(allCocktails) {
       allCocktails.forEach((allitem) => {
-        allitem.alcoFree = false;
         nonAlcoCocktails.forEach((nitem) => {
           if (allitem.idDrink === nitem.idDrink) {
             allitem.alcoFree = true;
