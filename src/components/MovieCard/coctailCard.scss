@@ -26,17 +26,29 @@
   .coctail__container {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 5px;
     opacity: 1;
     background-color: styles.$tile-color;
     font-size: 0.8em;
-    
-    height: auto;
-    height: 70vh;
+    height: min(100dvh, 450px);
     width: min(600px, 100vw);
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px black;
+
+    & > header {
+      display: flex;
+      justify-content: space-between;
+      flex-grow: 0;
+
+      & button {
+        height: 24px;
+        width: 24px;
+        background-image: url('../../images/close.png');
+        background-size: contain;
+      }
+    }
     
 
     .coctail__top-info {
@@ -78,12 +90,15 @@
       justify-content: space-between;
       flex-direction: row;
       width: 100%;
+      position: relative;
+      bottom: 0;
     }
 
     .coctail__description {
       margin-top: 5px;
-      max-height: 300px;
+      // max-height: 300px;
       overflow-y: auto;
+      flex-grow: 1;
     }
   }
 }

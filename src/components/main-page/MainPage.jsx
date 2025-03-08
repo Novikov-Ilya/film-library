@@ -18,10 +18,10 @@ export default function MainPage() {
     setCurrentCoctail(id);
   }
 
-  function switchCocktail(e) {
+  function switchCocktail(direction) {
     let index;
-    switch (e.target.innerText) {
-      case 'Next':
+    switch (direction) {
+      case 'next':
         index = coctails.findIndex(i => i.idDrink == currentCoctail) + 1;
         if (index > coctails.length - 1) {
           index = 0
@@ -29,7 +29,7 @@ export default function MainPage() {
         setCurrentCoctail(coctails[index].idDrink);
         break;
 
-      case 'Previous':
+      case 'prev':
         index = coctails.findIndex(i => i.idDrink == currentCoctail) - 1;
         if (index < 0) {
           index = coctails.length - 1
@@ -43,15 +43,16 @@ export default function MainPage() {
 
   function closeModal(e) {
     e.stopPropagation();
+    console.log(e.target.dataset.action)
     if (e.target.classList.contains('modal__background')
-      || e.target.innerHTML == 'Close') {
+      || e.target.dataset.action == 'close-modal') {
       setShowCoctail(false)
     }
 
   }
 
-  function selectCategory(e) {
-    setCurrentCategory(e)
+  function selectCategory(category) {
+    setCurrentCategory(category)
   }
 
   useEffect(() => {
