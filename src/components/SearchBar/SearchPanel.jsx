@@ -6,17 +6,17 @@ export default function SearchPanel() {
   const [value, setValue] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [resultPosition, setResultPosition] = useState({});
-
+  const [searchInputFocus, setSearchInputFocus] = useState(false);
 
   const handleSearch = async (e) => {
     setResultPosition({
       top: e.target.offsetTop + e.target.clientHeight + 10,
       left: e.target.offsetLeft,
-      'min-width': e.target.clientWidth,
-      'animation-name': 'show'
+      minWidth: e.target.clientWidth,
+      animationName: 'show'
     });
-    setValue(e.target.value);
-    if (e.target.value.length < 3) {
+    setValue(e.target.value.trimStart());
+    if (e.target.value.trimStart().length < 3) {
       setResultPosition({});
       setSearchResult([]);
       return;
@@ -34,13 +34,20 @@ export default function SearchPanel() {
   return (
     <>
       <div className="search-panel">
-        <input type="text" id='quick-search' value={value} onChange={handleSearch} />
+        <input
+          type="text"
+          id='quick-search'
+          value={value}
+          onChange={handleSearch}
+          onFocus={() => setSearchInputFocus(true)}
+          onBlur={() => setSearchInputFocus(false)}
+        />
         <button className='search-button'>Search</button>
       </div>
       <div className='search__quick-search-wrap' style={{ ...resultPosition }}>
         <ul className='search__quick-search-list'>
           {
-            searchResult &&
+            searchResult && searchInputFocus &&
             searchResult.map((cocktail) => {
               return (<li key={cocktail.idDrink}>
                 <div className='search__quick-search-item'>

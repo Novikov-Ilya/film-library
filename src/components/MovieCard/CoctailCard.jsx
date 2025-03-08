@@ -12,7 +12,7 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
 
   async function getCoctail(id) {
 
-    const response = await fetch(`${fetchParams.coctailDetailsBuId}${id}`,
+    const response = await fetch(`${fetchParams.coctailDetailsById}${id}`,
       {
         ...fetchParams.headers
       }
@@ -23,7 +23,6 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
 
   const handleTouchStart = (e) => {
     startTouchX = Math.round(e.changedTouches[0].pageX);
-    console.log(startTouchX);
   }
 
   const handleTouchEnd = (e) => {

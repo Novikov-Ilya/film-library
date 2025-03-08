@@ -4,6 +4,7 @@ import Coctail from '../Movie/Coctail';
 import './mainPage.scss'
 import CoctailCard from '../MovieCard/CoctailCard';
 import Tabs from '../Tabs/Tabs';
+import getNonAlcoholicCocktails from '../../const/nonAlcoholicCocktails';
 
 export default function MainPage() {
   const [coctails, setCoctails] = useState([]);
@@ -12,6 +13,11 @@ export default function MainPage() {
   const [showCoctail, setShowCoctail] = useState(false);
   const [currentCoctail, setCurrentCoctail] = useState(null);
   const [currentCategory, setCurrentCategory] = useState('Cocktail');
+  const [nonAlcoholicCocktails, setNonAlcoholicCocktails] = useState([])
+
+  useEffect(() => {
+    getNonAlcoholicCocktails(setNonAlcoholicCocktails);
+  }, [])
 
   function handleClick(id) {
     setShowCoctail(true);
@@ -64,24 +70,44 @@ export default function MainPage() {
   }, [showCoctail])
 
   useEffect(() => {
+    const nonAlcoCocktails = nonAlcoholicCocktails;
+
+    function addAlcoholFreeLabel(allCocktails) {
+      allCocktails.forEach((allitem) => {
+        allitem.alcoFree = false;
+        nonAlcoCocktails.forEach((nitem) => {
+          if (allitem.idDrink === nitem.idDrink) {
+            allitem.alcoFree = true;
+          }
+        })
+      })
+      setCoctails(allCocktails);
+    }
+
+
+
     const getCocktails = async () => {
+      let allCocktails;
       try {
         const response = await fetch(`${apiParams.cocktailByCategory}${currentCategory}`, { ...apiParams.headers });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        setCoctails(result.drinks);
+        allCocktails = result.drinks
       } catch (e) {
         setError(e);
         console.log(e);
       } finally {
         setLoading(false);
+        addAlcoholFreeLabel(allCocktails);
       }
     };
+    if (nonAlcoholicCocktails.length > 0) {
+      getCocktails();
+    }
 
-    getCocktails();
-  }, [currentCategory]);
+  }, [currentCategory, nonAlcoholicCocktails]);
 
   return (
     <>
@@ -94,11 +120,12 @@ export default function MainPage() {
         {
           loading
             ? <p>Loading...</p>
-            : coctails.map((item, index) => <Coctail
-              onClick={() => handleClick(item.idDrink, index)}
+            : coctails.map((item) => <Coctail
+              onClick={() => handleClick(item.idDrink)}
               key={item.idDrink}
               title={item.strDrink || ''}
               img={item.strDrinkThumb || './src/assets/imageplaceholder.png'}
+              nonAlco={item.alcoFree}
             />)
         }
         {
