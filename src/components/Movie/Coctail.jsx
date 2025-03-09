@@ -1,3 +1,4 @@
+import { AlcoFreeLabel } from '../AlcoFreeLabel/AlcoFreeLabel';
 import './coctail.scss';
 
 const Coctail = ({ title, img, onClick, nonAlco }) => {
@@ -5,7 +6,7 @@ const Coctail = ({ title, img, onClick, nonAlco }) => {
     <div className='coctail-item' onClick={onClick}>
       {
         nonAlco
-          ? <div className='cocktail-item__non-alco-label'></div>
+          ? <AlcoFreeLabel />
           : null
       }
       <img src={img} alt={title} />

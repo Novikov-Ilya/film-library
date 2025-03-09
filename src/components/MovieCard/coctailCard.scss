@@ -62,11 +62,16 @@
 
     .coctail__attr {
       padding-left: 8px;
-      width: min(250px, 45%);
+      width: min(350px, 50%);
+      position: relative;
+
+      & h4 {
+        margin-top: 10px;
+      }
     }
 
     .coctail__image {
-      width: min(300px, 45%);
+      width: min(350px, 50%);
 
       img {
         width: 100%;

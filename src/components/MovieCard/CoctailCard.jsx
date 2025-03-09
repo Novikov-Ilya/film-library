@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import fetchParams from '../../const/fetchparams';
 import './coctailCard.scss';
 import Button from "../Button/Button";
+import { AlcoFreeLabel } from "../AlcoFreeLabel/AlcoFreeLabel";
 
 export default function CoctailCard({ id, show, close, switchCocktail }) {
   const [currentCoctail, setCurrentCoctail] = useState({});
@@ -64,6 +65,7 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
               alt={currentCoctail.strDrink} />
           </div>
           <div className="coctail__attr">
+            {(currentCoctail.strAlcoholic == 'Non alcoholic') && <AlcoFreeLabel />}
             <p><b>Title:</b> {currentCoctail.strDrink}</p>
             <p><b>Category:</b> {currentCoctail.strCategory}</p>
             <p><b>IBA:</b> {currentCoctail.strIBA || 'Unspecified'}</p>
