@@ -6,6 +6,7 @@ import AlcoFreeLabel from "../AlcoFreeLabel/AlcoFreeLabel";
 
 export default function CoctailCard({ id, show, close, switchCocktail }) {
   const [currentCoctail, setCurrentCoctail] = useState({});
+  const [animation, setAnimation] = useState('')
 
   let startTouchX;
   let endTouchX;
@@ -32,14 +33,21 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
       directionSwitch = 'prev';
       startTouchX = null;
       endTouchX = null;
+      setAnimation('animation-right');
     }
 
     if (startTouchX - endTouchX > 0) {
       directionSwitch = 'next';
       startTouchX = null;
       endTouchX = null;
+      setAnimation('animation-left');
     }
     switchCocktail(directionSwitch)
+    
+  }
+
+  const handleAnimationEnd = () => {
+    setAnimation('')
   }
 
   useEffect(() => {
@@ -49,9 +57,10 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
   return (show &&
     <div className="modal__background" onClick={close} >
       <div
-        className="coctail__container"
+        className={`coctail__container ${animation}`}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
+        onAnimationEnd={handleAnimationEnd}
       >
         <header>
           <h2>{currentCoctail.strDrink}</h2>

@@ -25,6 +25,7 @@
 
   .coctail__container {
     display: flex;
+    position: relative;
     flex-direction: column;
     justify-content: flex-start;
     padding: 5px;
@@ -36,6 +37,43 @@
     margin: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px black;
+    transform: translateX(0);
+
+    &.animation-left {
+      animation-name: moveCardLeft;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-out;
+    }
+
+    @keyframes moveCardLeft {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-30px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    &.animation-right {
+      animation-name: moveCardRight;
+      animation-duration: 0.5s;
+      animation-timing-function: ease-out;
+    }
+
+    @keyframes moveCardRight {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(30px);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
 
     & > header {
       display: flex;
