@@ -1,4 +1,4 @@
-import { AlcoFreeLabel } from '../AlcoFreeLabel/AlcoFreeLabel';
+import AlcoFreeLabel from '../AlcoFreeLabel/AlcoFreeLabel';
 import './coctail.scss';
 
 const Coctail = ({ title, img, onClick, nonAlco }) => {

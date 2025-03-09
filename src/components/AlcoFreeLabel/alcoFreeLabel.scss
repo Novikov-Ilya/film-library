@@ -7,18 +7,14 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
-  animation-name: babyMove;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-}
+  opacity: 0;
+  transform: translateX(-50px);
+  transition-property: transform, opacity;
+  transition-timing-function: ease-out;
+  transition-duration: 0.5s;
 
-@keyframes babyMove {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
+  &.animation {
+    transform: translateX(0px);
     opacity: 1;
-    transform: translateX(0);
   }
 }
