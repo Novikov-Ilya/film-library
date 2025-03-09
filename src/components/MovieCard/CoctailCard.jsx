@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import fetchParams from '../../const/fetchparams';
 import './coctailCard.scss';
 import Button from "../Button/Button";
-import AlcoFreeLabel from "../AlcoFreeLabel/AlcoFreeLabel";
+import { AlcoFreeLabel } from "../AlcoFreeLabel/AlcoFreeLabel";
 
 export default function CoctailCard({ id, show, close, switchCocktail }) {
   const [currentCoctail, setCurrentCoctail] = useState({});
@@ -43,7 +43,7 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
       setAnimation('animation-left');
     }
     switchCocktail(directionSwitch)
-    
+
   }
 
   const handleAnimationEnd = () => {

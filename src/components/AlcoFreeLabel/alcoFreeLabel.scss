@@ -8,13 +8,26 @@
   bottom: 10px;
   right: 10px;
   opacity: 0;
-  transform: translateX(-50px);
-  transition-property: transform, opacity;
-  transition-timing-function: ease-out;
-  transition-duration: 0.5s;
+
 
   &.animation {
-    transform: translateX(0px);
-    opacity: 1;
+    animation-name: babyIconMove;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+  }
+
+  @keyframes babyIconMove {
+    from {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
   }
 }
