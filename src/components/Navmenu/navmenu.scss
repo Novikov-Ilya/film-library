@@ -1,4 +1,4 @@
-@use '../../const/colors.scss' as styles;
+@use '../../const/colors.scss' as colors;
 
 .nav-menu {
   display: flex;
@@ -35,7 +35,7 @@
   &:hover {
     transform: translateX(5px);
     border-right: none;
-    background-color: styles.$active-color;
+    background-color: colors.$active-color;
   }
 }
 
@@ -80,7 +80,7 @@
 
   .nav-menu-mobile:hover {
     right: 0;
-    background-color: styles.$green-light;
+    background-color: colors.$green-light;
   }
 
   .nav-menu-mobile:hover .menu-icon {

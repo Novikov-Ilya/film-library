@@ -1,10 +1,10 @@
-@use '../../const/colors.scss' as style;
+@use '../../const/colors.scss' as colors;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: style.$font-main-color;
+  color: colors.$font-main-color;
 }
 
 html {
@@ -28,9 +28,9 @@ body {
 
 h2 {
   font-size: 1.8em;
-  color: style.$font-black-color;
+  color: colors.$font-black-color;
 }
 
 h4 {
-  color: style.$font-black-color;
+  color: colors.$font-black-color;
 }

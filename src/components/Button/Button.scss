@@ -1,4 +1,4 @@
-@use '../../const/colors.scss' as styles;
+@use '../../const/colors.scss' as colors;
 
 button {
   font-family: inherit;
@@ -9,7 +9,7 @@ button {
   border-width: 0;
   cursor: pointer;
   transition: all ease-in-out 0.2s;
-  color: styles.$font-black-color;
+  color: colors.$font-black-color;
 
   &:hover {
     background-color: #ffe6b0;
@@ -17,6 +17,6 @@ button {
 }
 
 button.active {
-  background-color: styles.$active-color;
-  color: styles.$font-main-color;
+  background-color: colors.$active-color;
+  color: colors.$font-main-color;
 }
