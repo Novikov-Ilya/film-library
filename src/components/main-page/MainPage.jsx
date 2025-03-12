@@ -2,7 +2,7 @@ import apiParams from '../../const/fetchparams';
 import { useState, useEffect } from 'react';
 import Coctail from '../Movie/Coctail';
 import './mainPage.scss'
-import CoctailCard from '../MovieCard/CoctailCard';
+import CoctailCard from '../CocktailCard/CoctailCard';
 import Tabs from '../Tabs/Tabs';
 import getNonAlcoholicCocktails from '../../const/nonAlcoholicCocktails';
 

@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import { navMenu } from "../../const/navMenu"
 import './navmenu.scss'
 
@@ -7,7 +8,7 @@ const MobileMenu = () => {
       <div className="menu-icon">
       </div>
       <ul>
-        {navMenu.map((item, index) => <li key={index}>{item.title}</li>)}
+        {navMenu.map((item, index) => <li key={index}><Link to={item.path}>{item.title}</Link></li>)}
       </ul>
     </div>
   )
