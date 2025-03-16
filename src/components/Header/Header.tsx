@@ -1,7 +1,7 @@
 import Logo from "../Logo/Logo";
 import SearchPanel from "../SearchBar/SearchPanel";
 import NavMenu from "../Navmenu/NavMenu";
-import './header.scss'
+import './header.scss';
 import MobileMenu from "../Navmenu/MobileMenu";
 
 export default function Header() {

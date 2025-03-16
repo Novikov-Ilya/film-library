@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './searchPanel.scss'
-import apiParams from '../../const/fetchparams';
+import { fetchParams } from '../../const/fetchparams';
 
 export default function SearchPanel() {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState<string>('');
   const [searchResult, setSearchResult] = useState([]);
   const [resultPosition, setResultPosition] = useState({});
   const [searchInputFocus, setSearchInputFocus] = useState(false);
@@ -21,7 +21,7 @@ export default function SearchPanel() {
       setSearchResult([]);
       return;
     };
-    const response = await fetch(`${apiParams.cocktailByName}${e.target.value}`)
+    const response = await fetch(`${fetchParams.cocktailByName}${e.target.value}`)
     const cocktailsList = await response.json();
     if (!cocktailsList.drinks) {
       setResultPosition({});

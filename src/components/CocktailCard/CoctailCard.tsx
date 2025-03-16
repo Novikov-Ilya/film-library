@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
-import fetchParams from '../../const/fetchparams';
+import React, { useEffect, useState } from "react";
+import { fetchParams } from '../../const/fetchparams';
 import './coctailCard.scss';
 import Button from "../Button/Button";
 import { AlcoFreeLabel } from "../AlcoFreeLabel/AlcoFreeLabel";
+import { ICocktail, CocktailCardProps } from "./ICocktail";
 
-export default function CoctailCard({ id, show, close, switchCocktail }) {
-  const [currentCoctail, setCurrentCoctail] = useState({});
+export default function CoctailCard({ id, show, close, switchCocktail }: CocktailCardProps) {
+  const [currentCoctail, setCurrentCoctail] = useState<ICocktail>({});
   const [animation, setAnimation] = useState('')
 
-  let startTouchX;
-  let endTouchX;
-  let directionSwitch;
+  let startTouchX: number | null;
+  let endTouchX: number | null;
+  let directionSwitch: string;
 
-  async function getCoctail(id) {
+  async function getCoctail(id: string) {
 
     const response = await fetch(`${fetchParams.coctailDetailsById}${id}`,
       {
@@ -23,20 +24,20 @@ export default function CoctailCard({ id, show, close, switchCocktail }) {
     setCurrentCoctail(coctailDetails.drinks[0]);
   }
 
-  const handleTouchStart = (e) => {
+  const handleTouchStart = (e: React.TouchEvent) => {
     startTouchX = Math.round(e.changedTouches[0].pageX);
   }
 
-  const handleTouchEnd = (e) => {
+  const handleTouchEnd = (e: React.TouchEvent) => {
     endTouchX = Math.round(e.changedTouches[0].pageX);
-    if (startTouchX - endTouchX < 0) {
+    if (startTouchX! - endTouchX < 0) {
       directionSwitch = 'prev';
-      startTouchX = null;
+      startTouchX = null
       endTouchX = null;
       setAnimation('animation-right');
     }
 
-    if (startTouchX - endTouchX > 0) {
+    if (startTouchX! - endTouchX! > 0) {
       directionSwitch = 'next';
       startTouchX = null;
       endTouchX = null;

@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router';
 import './App.scss'
 // import Slider from '../slider/Slider'
-import MainPage from '../main-page/MainPage'
-import { SearchPage } from '../Pages/SearchPage/SearchPage';
-import { AboutPage } from '../Pages/AboutPage/AboutPage';
-import { Layout } from '../Template/Layout';
+import MainPage from '../main-page/MainPage.tsx'
+import { SearchPage } from '../Pages/SearchPage/SearchPage.tsx';
+import { AboutPage } from '../Pages/AboutPage/AboutPage.tsx';
+import { Layout } from '../Template/Layout.tsx';
 
 
 function App() {

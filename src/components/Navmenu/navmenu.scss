@@ -7,6 +7,11 @@
   padding: 0 10px;
 }
 
+a.active {
+  color: colors.$active-color;
+  transition: .3s ease-in;
+}
+
 .nav-menu ul {
   display: flex;
   flex-wrap: nowrap;
@@ -36,6 +41,10 @@
     transform: translateX(5px);
     border-right: none;
     background-color: colors.$active-color;
+
+    & a.active {
+      color: colors.$font-main-color;
+    }
   }
 }
 

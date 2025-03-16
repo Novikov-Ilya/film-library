@@ -1,30 +1,37 @@
-import apiParams from '../../const/fetchparams';
+import { fetchParams } from '../../const/fetchparams';
 import { useState, useEffect } from 'react';
 import Coctail from '../Movie/Coctail';
 import './mainPage.scss'
 import CoctailCard from '../CocktailCard/CoctailCard';
 import Tabs from '../Tabs/Tabs';
 import getNonAlcoholicCocktails from '../../const/nonAlcoholicCocktails';
+import { ISimpleCocktailsLIst } from '../../interfaces/ISimpleCocktailsList';
+
+interface CustomElement extends Element {
+  dataset: {
+    [key: string]: string;
+  }
+}
 
 export default function MainPage() {
-  const [coctails, setCoctails] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [showCoctail, setShowCoctail] = useState(false);
-  const [currentCoctail, setCurrentCoctail] = useState(null);
-  const [currentCategory, setCurrentCategory] = useState('Cocktail');
-  const [nonAlcoholicCocktails, setNonAlcoholicCocktails] = useState([])
+  const [coctails, setCoctails] = useState<ISimpleCocktailsLIst[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<Error | null>(null);
+  const [showCoctail, setShowCoctail] = useState<boolean>(false);
+  const [currentCoctail, setCurrentCoctail] = useState<string>('');
+  const [currentCategory, setCurrentCategory] = useState<string>('Cocktail');
+  const [nonAlcoholicCocktails, setNonAlcoholicCocktails] = useState<ISimpleCocktailsLIst[]>([])
 
   useEffect(() => {
     getNonAlcoholicCocktails(setNonAlcoholicCocktails);
   }, [])
 
-  function handleClick(id) {
+  function handleClick(id: string) {
     setShowCoctail(true);
     setCurrentCoctail(id);
   }
 
-  function switchCocktail(direction) {
+  function switchCocktail(direction: string) {
     let index;
     switch (direction) {
       case 'next':
@@ -47,16 +54,16 @@ export default function MainPage() {
     }
   }
 
-  function closeModal(e) {
+  function closeModal(e: React.MouseEvent<HTMLDivElement | HTMLButtonElement>) {
     e.stopPropagation();
-    if (e.target.classList.contains('modal__background')
-      || e.target.dataset.action == 'close-modal') {
+    const target = e.target as CustomElement;
+    if (target.classList.contains('modal__background')
+      || target.dataset.action == 'close-modal') {
       setShowCoctail(false)
     }
-
   }
 
-  function selectCategory(category) {
+  function selectCategory(category: string) {
     setCurrentCategory(category)
   }
 
@@ -71,7 +78,7 @@ export default function MainPage() {
   useEffect(() => {
     const nonAlcoCocktails = nonAlcoholicCocktails;
 
-    function addAlcoholFreeLabel(allCocktails) {
+    function addAlcoholFreeLabel(allCocktails: ISimpleCocktailsLIst[]) {
       allCocktails.forEach((allitem) => {
         nonAlcoCocktails.forEach((nitem) => {
           if (allitem.idDrink === nitem.idDrink) {
@@ -82,23 +89,21 @@ export default function MainPage() {
       setCoctails(allCocktails);
     }
 
-
-
     const getCocktails = async () => {
-      let allCocktails;
+      let allCocktails: ISimpleCocktailsLIst[];
       try {
-        const response = await fetch(`${apiParams.cocktailByCategory}${currentCategory}`, { ...apiParams.headers });
+        const response = await fetch(`${fetchParams.cocktailByCategory}${currentCategory}`, { ...fetchParams.headers });
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const result = await response.json();
-        allCocktails = result.drinks
+        allCocktails = result.drinks;
+        addAlcoholFreeLabel(allCocktails);
       } catch (e) {
-        setError(e);
+        setError(e as Error);
         console.log(e);
       } finally {
         setLoading(false);
-        addAlcoholFreeLabel(allCocktails);
       }
     };
     if (nonAlcoholicCocktails.length > 0) {

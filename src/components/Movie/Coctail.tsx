@@ -1,7 +1,14 @@
 import { AlcoFreeLabel } from '../AlcoFreeLabel/AlcoFreeLabel';
 import './coctail.scss';
 
-const Coctail = ({ title, img, onClick, nonAlco }) => {
+interface CocktailProps {
+  title: string;
+  img: string;
+  onClick: () => void;
+  nonAlco: boolean;
+}
+
+const Coctail = ({ title, img, onClick, nonAlco }: CocktailProps) => {
   return (
     <div className='coctail-item' onClick={onClick}>
       {
