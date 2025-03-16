@@ -5,13 +5,15 @@ import Button from "../Button/Button";
 import { AlcoFreeLabel } from "../AlcoFreeLabel/AlcoFreeLabel";
 import { ICocktail, CocktailCardProps } from "./ICocktail";
 
+type switchCockailDirection = 'prev' | 'next';
+
 export default function CoctailCard({ id, show, close, switchCocktail }: CocktailCardProps) {
   const [currentCoctail, setCurrentCoctail] = useState<ICocktail>({});
-  const [animation, setAnimation] = useState('')
+  const [animation, setAnimation] = useState<string>('')
 
   let startTouchX: number | null;
   let endTouchX: number | null;
-  let directionSwitch: string;
+  let directionSwitch: switchCockailDirection;
 
   async function getCoctail(id: string) {
 
